@@ -1,0 +1,21 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/influitive-events-openapi.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: sec0
+  type: apiKey
+  in: header
+  parameter: Auhtorization Token
+  sources:
+  - openapi/influitive-events-openapi.json
+- name: sec1
+  type: apiKey
+  in: header
+  parameter: X_ORG_ID
+  sources:
+  - openapi/influitive-events-openapi.json
