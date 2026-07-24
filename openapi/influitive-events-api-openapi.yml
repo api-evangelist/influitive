@@ -1,0 +1,210 @@
+openapi: 3.1.0
+info:
+  title: do-not-delete Events API
+  version: '1.0'
+servers:
+- url: https://api.influitive.com
+security:
+- sec0: []
+  sec1: []
+tags:
+- name: Events
+paths:
+  /events:
+    post:
+      summary: Log an Event and Act of Advocacy
+      description: Award Points for actions that happen outside of Influitive. Can also be used to advance challenges or log acts of advocacy
+      operationId: events
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+              - type
+              - contact
+              properties:
+                type:
+                  type: string
+                  description: The API code for the custom event created in the AdvocateHub
+                contact:
+                  type: object
+                  description: One of id, email*, or crm_contact_id is required
+                  properties: {}
+                points:
+                  type: string
+                  description: Points that are to be awarded to the advocate.  If a stage code is provided, advocates will earn the number of points configured into the challenge.
+                stage:
+                  type: object
+                  description: The "stage code" for an api integrated stage in a challenge.  The advocate must be able to perform the stage for the challenge to progress.  The stage code is optional as events and points can be recognized without having a corresponding stage within a challenge.
+                  properties: {}
+                advocacy:
+                  type: object
+                  description: Optional field for creating an Act of Advocacy. The object includes advocacy_type, content, source_title, source_url, occurred_at fields. See below for more details.
+                  properties: {}
+            examples:
+              Request Example:
+                value:
+                  type: custom_event_api_code
+                  points: '10'
+                  contact:
+                    id: ''
+                    email: steveadvocate@acme.com
+                    crm_contact_id: 0036100000ghjj3AAA
+                  stage:
+                    code: stagecode
+                  advocacy:
+                    advocacy_type: fun
+                    content: Test content
+                    source_title: test source title
+                    source_url: https://test.com
+                    occurred_at: '2023-01-26'
+      responses:
+        '201':
+          description: '201'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: "{\n  \"id\": 536,\n  \"event_type_code\": \"custom_event_api_code\",\n  \"points\": 10,\n  \"contact\": {\n    \"id\": 1,\n    \"email\": \"steveadvocate@acme.com\",\n    \"first_name\": \"Steve\",\n    \"last_name\": \"Advocate\",\n    \"lifetime_points\": 1605,\n    \"current_points\": 1505,\n    \"type\": \"Advocate\",\n    \"salesforce_id\": null,\n    \"source\": \"Referrals\",\n    \"thumb\": \"https://d35d6oa6cn0nzo.cloudfront.net/influitiveimagesqa/gilmour/contacts/thumb/1.jpg?1417104506\",\n    \"name\": \"Steve Advocate\"\n  },\n  \"parameters\": {}\n}"
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                    example: 536
+                    default: 0
+                  event_type_code:
+                    type: string
+                    example: custom_event_api_code
+                  points:
+                    type: integer
+                    example: 10
+                    default: 0
+                  contact:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                        example: 1
+                        default: 0
+                      email:
+                        type: string
+                        example: steveadvocate@acme.com
+                      first_name:
+                        type: string
+                        example: Steve
+                      last_name:
+                        type: string
+                        example: Advocate
+                      lifetime_points:
+                        type: integer
+                        example: 1605
+                        default: 0
+                      current_points:
+                        type: integer
+                        example: 1505
+                        default: 0
+                      type:
+                        type: string
+                        example: Advocate
+                      salesforce_id: {}
+                      source:
+                        type: string
+                        example: Referrals
+                      thumb:
+                        type: string
+                        example: https://d35d6oa6cn0nzo.cloudfront.net/influitiveimagesqa/gilmour/contacts/thumb/1.jpg?1417104506
+                      name:
+                        type: string
+                        example: Steve Advocate
+                  parameters:
+                    type: object
+                    properties: {}
+        '401':
+          description: '401'
+          content:
+            text/plain:
+              examples:
+                Result:
+                  value: "{\n  \"Date\": \"Sun, 18 Mar 2016 15:07:31 GMT\",\n  \"Www-Authenticate\": \"Token realm=Api\",\n  \"P3p\": \"CP=\\\"Influitive does not support P3P, as it is an outdated standard. Please view our privacy policy here: http://www.influitive.com/privacy\\\"\",\n  \"Status\": \"401 Unauthorized\",\n  \"Connection\": \"keep-alive\",\n  \"Vary\": \"Origin\",\n  \"Content-Length\": \"0\",\n  \"X-Request-Id\": \"bcd05be1-db19-47ec-84ef-3cf3a1f1298c\",\n  \"X-Runtime\": \"0.060843\",\n  \"Server\": \"nginx\",\n  \"Access-Control-Max-Age\": \"1728000\",\n  \"Access-Control-Allow-Methods\": \"GET, POST, OPTIONS, PATCH, DELETE, PUT\",\n  \"Content-Type\": \"text/plain\",\n  \"Access-Control-Allow-Origin\": \"https://yourhub.influitive.com\",\n  \"Access-Control-Expose-Headers\": \"\",\n  \"Cache-Control\": \"no-cache\",\n  \"Access-Control-Allow-Credentials\": \"true\",\n  \"X-Rack-Cache\": \"invalidate, pass\"\n}"
+              schema:
+                type: object
+                properties:
+                  Date:
+                    type: string
+                    example: Sun, 18 Mar 2016 15:07:31 GMT
+                  Www-Authenticate:
+                    type: string
+                    example: Token realm=Api
+                  P3p:
+                    type: string
+                    example: 'CP="Influitive does not support P3P, as it is an outdated standard. Please view our privacy policy here: http://www.influitive.com/privacy"'
+                  Status:
+                    type: string
+                    example: 401 Unauthorized
+                  Connection:
+                    type: string
+                    example: keep-alive
+                  Vary:
+                    type: string
+                    example: Origin
+                  Content-Length:
+                    type: string
+                    example: '0'
+                  X-Request-Id:
+                    type: string
+                    example: bcd05be1-db19-47ec-84ef-3cf3a1f1298c
+                  X-Runtime:
+                    type: string
+                    example: '0.060843'
+                  Server:
+                    type: string
+                    example: nginx
+                  Access-Control-Max-Age:
+                    type: string
+                    example: '1728000'
+                  Access-Control-Allow-Methods:
+                    type: string
+                    example: GET, POST, OPTIONS, PATCH, DELETE, PUT
+                  Content-Type:
+                    type: string
+                    example: text/plain
+                  Access-Control-Allow-Origin:
+                    type: string
+                    example: https://yourhub.influitive.com
+                  Access-Control-Expose-Headers:
+                    type: string
+                    example: ''
+                  Cache-Control:
+                    type: string
+                    example: no-cache
+                  Access-Control-Allow-Credentials:
+                    type: string
+                    example: 'true'
+                  X-Rack-Cache:
+                    type: string
+                    example: invalidate, pass
+      deprecated: false
+      security: []
+      tags:
+      - Events
+components:
+  securitySchemes:
+    sec0:
+      type: apiKey
+      in: header
+      name: Auhtorization Token
+    sec1:
+      type: apiKey
+      in: header
+      name: X_ORG_ID
+x-readme:
+  headers:
+  - key: Content-Type
+    value: application/json
+  - key: Accept
+    value: application/json
+  explorer-enabled: true
+  proxy-enabled: true
+x-readme-fauxas: true
