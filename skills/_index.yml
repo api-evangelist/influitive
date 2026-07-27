@@ -1,0 +1,8 @@
+generated: '2026-07-19'
+method: generated
+skills:
+- file: influitive-log-advocacy-event.md
+  name: Log an event and award advocacy points
+  api: openapi/influitive-events-openapi.json
+  operations:
+  - events

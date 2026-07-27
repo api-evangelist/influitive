@@ -1,8 +1,14 @@
 aid: influitive
 name: Influitive
-description: Influitive is a company surfaced as a portfolio company of 500-global, lightspeed-venture-partners
-  and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the
-  enrichment pipeline.
+description: >-
+  Influitive is a Toronto-based SaaS company that provides a customer advocacy, community, and engagement
+  platform (historically branded AdvocateHub) that helps B2B companies discover, mobilize, and reward their
+  customer advocates. The platform runs gamified challenges, guided customer journeys, referral and reference
+  programs, reviews and social amplification, discussions, ideation, and loyalty rewards. Influitive exposes
+  a small public HTTP API — the Events endpoint — that lets external systems log an event or act of advocacy
+  and award points to an advocate, plus a catalog of outbound webhooks that notify integrations when
+  advocacy, challenge, reward, referral, discussion, and profile events occur inside a hub. Developer
+  documentation is published on a ReadMe-hosted portal at influitive.readme.io.
 url: https://raw.githubusercontent.com/api-evangelist/influitive/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -11,17 +17,100 @@ x-backed-by:
 - lightspeed-venture-partners
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
+image: https://influitive.com/wp-content/uploads/2021/05/influitive-logo.png
 tags:
 - Company
-apis: []
+- Customer Advocacy
+- Customer Community
+- Customer Engagement
+- Advocacy Marketing
+- Referral Marketing
+- Customer Loyalty
+- Gamification
+- Webhooks
+- SaaS
+apis:
+- aid: influitive:influitive-events-api
+  name: Influitive Events API
+  description: The Events API from Influitive — 1 operation(s) for events.
+  humanURL: https://influitive.readme.io/reference/events
+  baseURL: https://api.influitive.com
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/influitive-events-api-openapi.yml
+  - type: Documentation
+    url: https://influitive.readme.io/reference/events
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: Authentication
+  url: authentication/influitive-authentication.yml
+- type: Conventions
+  url: conventions/influitive-conventions.yml
+- type: ErrorCatalog
+  url: errors/influitive-problem-types.yml
+- type: Webhooks
+  url: asyncapi/influitive-webhooks.yml
+- type: MCPServer
+  url: mcp/influitive-mcp.yml
+- type: LLMsTxt
+  url: llms/influitive-llms.txt
+- type: Overlay
+  url: overlays/influitive-events-overlay.yaml
+- type: Conformance
+  url: conformance/influitive-conformance.yml
+- type: DataModel
+  url: data-model/influitive-data-model.yml
+- type: Lifecycle
+  url: lifecycle/influitive-lifecycle.yml
+- type: WellKnown
+  url: well-known/influitive-well-known.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: DomainSecurity
+  url: security/influitive-domain-security.yml
+- type: DeveloperPortal
+  url: https://influitive.readme.io
+- type: Documentation
+  url: https://influitive.readme.io/docs
+- type: APIReference
+  url: https://influitive.readme.io/reference/events
+- type: Support
+  url: https://support.influitive.com
+- type: Blog
+  url: https://influitive.com/blog/
+- type: Pricing
+  url: https://influitive.com/pricing/
+- type: TermsOfService
+  url: https://influitive.com/terms-of-service/
+- type: PrivacyPolicy
+  url: https://influitive.com/privacy-policy/
+- type: SignUp
+  url: https://influitive.com/request-a-demo/
 - type: Website
   url: https://influitive.com
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

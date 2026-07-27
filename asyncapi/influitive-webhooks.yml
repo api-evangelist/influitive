@@ -1,0 +1,48 @@
+generated: '2026-07-19'
+method: searched
+source: https://support.influitive.com/article/95-webhooks-formatting-of-influitive-webhooks
+spec_type: Webhooks
+notes: >-
+  Influitive AdvocateHub delivers outbound webhooks as JSON payloads triggered by events inside a hub. No
+  AsyncAPI document is published; this captures the documented webhook event catalog grouped by category, as
+  described in the Influitive support docs. Event names are the categories/triggers named in the docs.
+delivery:
+  transport: http
+  format: json
+categories:
+- name: Discussions
+  events:
+  - topic posts
+  - mentions
+  - replies
+- name: Rewards
+  events:
+  - redemptions
+  - fulfillments
+  - badge earnings
+  - level advancement
+- name: Stages
+  events:
+  - social sharing
+  - quizzes
+  - reviews
+  - NPS
+- name: Challenges
+  events:
+  - status changes
+  - completions
+- name: User Actions
+  events:
+  - follows
+  - consent
+  - profile updates
+  - joins
+- name: Admin Actions
+  events:
+  - group management
+  - point adjustments
+- name: Referrals
+  events:
+  - milestones
+  - submissions
+  - wins/losses

@@ -1,0 +1,18 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/influitive-events-openapi.json
+standards:
+- id: openapi-3.1
+  conforms: true
+  evidence: Provider publishes an OpenAPI 3.1.0 definition on influitive.readme.io.
+- id: oauth2
+  conforms: false
+  evidence: Authentication is apiKey (token + org-id headers), not OAuth2.
+- id: oidc
+  conforms: false
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: Errors are returned as text/plain, not application/problem+json.
+- id: webhooks
+  conforms: true
+  evidence: Provider documents an outbound webhook catalog (support.influitive.com/article/95).

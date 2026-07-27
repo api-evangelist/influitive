@@ -1,0 +1,47 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/influitive-events-openapi.json
+notes: >-
+  Entity graph derived from the Events operation request/response schemas. The public API exposes a narrow
+  slice of the AdvocateHub domain (events, contacts, points, challenge stages, acts of advocacy).
+entities:
+- name: Event
+  description: An action logged against a contact that awards points; may advance a challenge stage.
+  fields:
+  - id (integer)
+  - event_type_code (string)
+  - points (integer)
+  relationships:
+  - belongs_to: Contact
+    via: contact
+- name: Contact
+  description: An advocate profile in the AdvocateHub. Created automatically if the email does not yet exist.
+  fields:
+  - id (integer)
+  - email (string)
+  - first_name (string)
+  - last_name (string)
+  - lifetime_points (integer)
+  - current_points (integer)
+  - type (string)
+  - salesforce_id (string, nullable)
+  - crm_contact_id (string)
+  - source (string)
+- name: Stage
+  description: An API-integrated stage within a challenge, referenced by stage code.
+  fields:
+  - code (string)
+  relationships:
+  - belongs_to: Challenge
+    via: stage
+- name: Advocacy
+  description: An act of advocacy attached to an event.
+  fields:
+  - advocacy_type (string)
+  - content (string)
+  - source_title (string)
+  - source_url (string)
+  - occurred_at (date)
+  relationships:
+  - belongs_to: Contact
+    via: contact

@@ -1,0 +1,26 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Influitive Events API
+  version: 1.0.0
+generated: '2026-07-19'
+method: generated
+source: openapi/influitive-events-openapi.json
+extends: openapi/influitive-events-openapi.json
+actions:
+- target: $.info
+  update:
+    x-apievangelist-provider: influitive
+    x-apievangelist-product: AdvocateHub
+    x-apievangelist-notes: >-
+      Single-operation advocacy events endpoint. Authentication requires two apiKey headers: an
+      Authorization token (the spec names the header "Auhtorization Token" — a vendor typo preserved
+      verbatim from the published spec) and X_ORG_ID identifying the hub.
+- target: $.components.securitySchemes.sec0
+  update:
+    x-apievangelist-note: >-
+      Header name "Auhtorization Token" is a typo in the provider's published spec; verify the exact
+      header string against influitive.readme.io before use.
+- target: $.paths./events.post
+  update:
+    x-apievangelist-idempotent: false
+    x-apievangelist-side-effect: Creates or updates an advocate profile and awards points (write, non-idempotent).

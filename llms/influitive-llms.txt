@@ -1,0 +1,9 @@
+# Influitive Documentation
+
+> Leverage the Influitive API to integrate advocacy everywhere your customers are.
+
+## Guides
+- [Documentation](https://influitive.readme.io/docs.md): Influitive documentation
+
+## API Reference
+- [Log an Event and Act of Advocacy](https://influitive.readme.io/reference/events.md): Award Points for actions that happen outside of Influitive. Can also be used to advance challenges or log acts of advocacy

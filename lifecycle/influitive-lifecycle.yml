@@ -1,0 +1,20 @@
+generated: '2026-07-19'
+method: searched
+source: https://influitive.readme.io/reference/events
+versioning:
+  scheme: none-in-path
+  spec_version: '1.0'
+  notes: The public Events API is served from api.influitive.com with no version segment.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No published deprecation/sunset policy found.
+sla:
+  url: null
+status_page:
+  url: https://influitive.statuspage.io
+  active: false
+  notes: >-
+    An Atlassian Statuspage exists at influitive.statuspage.io but status.influitive.com currently redirects
+    to /inactive, so it is not being maintained. No active status page pointer is emitted.
+deprecated_operations: []

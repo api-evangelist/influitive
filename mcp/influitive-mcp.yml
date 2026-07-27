@@ -1,0 +1,16 @@
+generated: '2026-07-19'
+method: derived
+status: candidate
+source: openapi/influitive-events-openapi.json
+notes: >-
+  No official hosted/remote Influitive MCP server was found (checked docs, npm @modelcontextprotocol, and
+  MCP registries). This is a candidate tool list derived from the published OpenAPI operation.
+server:
+  name: influitive
+  transport: http
+tools:
+- name: log_advocacy_event
+  description: >-
+    Log an event or act of advocacy for a contact in an AdvocateHub and award points, optionally advancing
+    an API-integrated challenge stage.
+  source_operation: openapi/influitive-events-openapi.json#events

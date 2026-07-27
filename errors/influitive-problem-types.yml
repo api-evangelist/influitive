@@ -1,0 +1,23 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/influitive-events-openapi.json
+format: none
+notes: >-
+  Influitive's Events API does not use RFC 9457 problem+json. Errors are returned as text/plain with the
+  underlying HTTP status; authentication failures set a WWW-Authenticate 'Token realm=Api' header. Only the
+  responses documented in the published OpenAPI are captured below — no error registry is published.
+envelope:
+  media_type: text/plain
+  problem_json: false
+problems:
+- status: 401
+  title: Unauthorized
+  description: >-
+    Missing or invalid credentials. Response includes 'WWW-Authenticate: Token realm=Api'. Verify the
+    Authorization token header and X_ORG_ID header are present and correct.
+  www_authenticate: Token realm=Api
+  source_operation: openapi/influitive-events-openapi.json#events
+success:
+- status: 201
+  description: Event logged; returns the event id, points awarded, and the affected contact profile.
+  source_operation: openapi/influitive-events-openapi.json#events

@@ -1,0 +1,40 @@
+generated: '2026-07-19'
+method: derived
+source: openapi/influitive-events-openapi.json
+docs: https://influitive.readme.io/reference/events
+summary: >-
+  Cross-cutting conventions for the Influitive Events API, derived from the published OpenAPI and developer
+  docs. The public API surface is a single write operation, so most collection-level conventions
+  (pagination, sparse fields, expansion) do not apply.
+authentication:
+  style: apiKey (dual header)
+  headers:
+  - name: Auhtorization Token
+    role: API token (bearer-style token, header name is a vendor typo preserved from the published spec)
+  - name: X_ORG_ID
+    role: Identifies the AdvocateHub organization
+  ref: authentication/influitive-authentication.yml
+content_type:
+  request: application/json
+  response: text/plain
+idempotency:
+  supported: false
+  notes: No Idempotency-Key header or idempotent-retry contract is documented; POST /events is non-idempotent.
+pagination:
+  supported: false
+  notes: Single-resource write endpoint; no list/collection pagination.
+versioning:
+  scheme: none-in-path
+  spec_version: '1.0'
+  notes: Base host api.influitive.com with no version segment; spec info.version is 1.0.
+request_tracing:
+  response_header: X-Request-Id
+  notes: Observed on error responses in the published spec examples.
+rate_limiting:
+  documented: false
+error_envelope:
+  media_type: text/plain
+  problem_json: false
+  ref: errors/influitive-problem-types.yml
+webhooks:
+  ref: asyncapi/influitive-webhooks.yml

@@ -1,0 +1,16 @@
+generated: '2026-07-19'
+method: searched
+notes: >-
+  Probed the standard /.well-known/ discovery surface on the Influitive website and API host. None returned
+  200 — absence is valid, expected data.
+hosts:
+- host: https://influitive.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+- host: https://api.influitive.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404

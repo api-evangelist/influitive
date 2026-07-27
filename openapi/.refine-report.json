@@ -1,0 +1,14 @@
+{
+  "provider": "influitive",
+  "sources": [
+    "influitive-events-api-openapi.yml"
+  ],
+  "outputs": [
+    "influitive-events-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
