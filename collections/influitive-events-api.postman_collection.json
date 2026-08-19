@@ -1,0 +1,199 @@
+{
+  "item": [
+    {
+      "id": "dae61a13-3c19-41c7-98e8-16050873681a",
+      "name": "Events",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "51afcbb4-4ea7-4831-9b36-62386c84874e",
+          "name": "Log an Event and Act of Advocacy",
+          "request": {
+            "name": "Log an Event and Act of Advocacy",
+            "description": {
+              "content": "Award Points for actions that happen outside of Influitive. Can also be used to advance challenges or log acts of advocacy",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "events"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "text/plain"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"type\": \"<string>\",\n  \"contact\": {},\n  \"points\": \"<string>\",\n  \"stage\": {},\n  \"advocacy\": {}\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "bf1b5b0e-1476-4b89-8852-33951c7402fd",
+              "name": "201",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Auhtorization Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom_event_api_code\",\n  \"points\": \"10\",\n  \"contact\": {\n    \"id\": \"\",\n    \"email\": \"steveadvocate@acme.com\",\n    \"crm_contact_id\": \"0036100000ghjj3AAA\"\n  },\n  \"stage\": {\n    \"code\": \"stagecode\"\n  },\n  \"advocacy\": {\n    \"advocacy_type\": \"fun\",\n    \"content\": \"Test content\",\n    \"source_title\": \"test source title\",\n    \"source_url\": \"https://test.com\",\n    \"occurred_at\": \"2023-01-26\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "{\n  \"id\": 536,\n  \"event_type_code\": \"custom_event_api_code\",\n  \"points\": 10,\n  \"contact\": {\n    \"id\": 1,\n    \"email\": \"steveadvocate@acme.com\",\n    \"first_name\": \"Steve\",\n    \"last_name\": \"Advocate\",\n    \"lifetime_points\": 1605,\n    \"current_points\": 1505,\n    \"type\": \"Advocate\",\n    \"salesforce_id\": null,\n    \"source\": \"Referrals\",\n    \"thumb\": \"https://d35d6oa6cn0nzo.cloudfront.net/influitiveimagesqa/gilmour/contacts/thumb/1.jpg?1417104506\",\n    \"name\": \"Steve Advocate\"\n  },\n  \"parameters\": {}\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4a53a9cb-27f2-4af2-b7fb-c43642d79600",
+              "name": "401",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "events"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Auhtorization Token",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "text/plain"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"custom_event_api_code\",\n  \"points\": \"10\",\n  \"contact\": {\n    \"id\": \"\",\n    \"email\": \"steveadvocate@acme.com\",\n    \"crm_contact_id\": \"0036100000ghjj3AAA\"\n  },\n  \"stage\": {\n    \"code\": \"stagecode\"\n  },\n  \"advocacy\": {\n    \"advocacy_type\": \"fun\",\n    \"content\": \"Test content\",\n    \"source_title\": \"test source title\",\n    \"source_url\": \"https://test.com\",\n    \"occurred_at\": \"2023-01-26\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "{\n  \"Date\": \"Sun, 18 Mar 2016 15:07:31 GMT\",\n  \"Www-Authenticate\": \"Token realm=Api\",\n  \"P3p\": \"CP=\\\"Influitive does not support P3P, as it is an outdated standard. Please view our privacy policy here: http://www.influitive.com/privacy\\\"\",\n  \"Status\": \"401 Unauthorized\",\n  \"Connection\": \"keep-alive\",\n  \"Vary\": \"Origin\",\n  \"Content-Length\": \"0\",\n  \"X-Request-Id\": \"bcd05be1-db19-47ec-84ef-3cf3a1f1298c\",\n  \"X-Runtime\": \"0.060843\",\n  \"Server\": \"nginx\",\n  \"Access-Control-Max-Age\": \"1728000\",\n  \"Access-Control-Allow-Methods\": \"GET, POST, OPTIONS, PATCH, DELETE, PUT\",\n  \"Content-Type\": \"text/plain\",\n  \"Access-Control-Allow-Origin\": \"https://yourhub.influitive.com\",\n  \"Access-Control-Expose-Headers\": \"\",\n  \"Cache-Control\": \"no-cache\",\n  \"Access-Control-Allow-Credentials\": \"true\",\n  \"X-Rack-Cache\": \"invalidate, pass\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.influitive.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Auhtorization Token"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "00c841e4-103a-42ff-95cb-e993c9243d6a",
+    "name": "do-not-delete Events API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "",
+      "type": "text/plain"
+    }
+  }
+}

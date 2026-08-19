@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "do-not-delete Events API",
+    "version": "1.0"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Auhtorization Token",
+      "value": "{{Auhtorization Token}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Events",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Log an Event and Act of Advocacy",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.influitive.com/events",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Award Points for actions that happen outside of Influitive. Can also be used to advance challenges or log acts of advocacy"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
