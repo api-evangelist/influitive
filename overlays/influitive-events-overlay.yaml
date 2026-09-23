@@ -2,9 +2,9 @@ overlay: 1.0.0
 info:
   title: API Evangelist enhancements for Influitive Events API
   version: 1.0.0
-generated: '2026-07-19'
-method: generated
-source: openapi/influitive-events-openapi.json
+x-generated: '2026-07-19'
+x-method: generated
+x-source: openapi/influitive-events-openapi.json
 extends: openapi/influitive-events-openapi.json
 actions:
 - target: $.info

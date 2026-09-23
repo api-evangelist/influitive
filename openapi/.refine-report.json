@@ -1,7 +1,7 @@
 {
   "provider": "influitive",
   "sources": [
-    "influitive-events-api-openapi.yml"
+    "_original/influitive-events-openapi.json"
   ],
   "outputs": [
     "influitive-events-api-openapi.yml"
@@ -9,6 +9,14 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "influitive-events-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "influitive-events-openapi.json: tagged paths POST /events -> Events",
+    "influitive-events-openapi.json: declared missing tag: Events",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "influitive-events-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
